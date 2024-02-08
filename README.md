@@ -21,7 +21,7 @@ Github Link:- https://github.com/k1chandrasekhar/Placementcell_project
 
 ## 🔗 Live Demo
 
-<!-- Render Link:- https://placement-cell-app-kxhc.onrender.com -->
+Render Link:- https://placement-cell-yb9w.onrender.com
 
 ## Features
 
