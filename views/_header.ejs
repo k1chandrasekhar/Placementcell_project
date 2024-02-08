@@ -1,0 +1,26 @@
+<header>
+    <% if (locals.user) { %>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">Placement Cell</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/company/home">Company List</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/download-csv">Download Report</a>
+                        </li>
+                    </ul>
+                    <span class="navbar-text mr-3">Welcome <%= locals.user.name %></span>
+                    <form class="form-inline my-2 my-lg-0">
+                        <a class="btn btn-danger my-2 my-sm-0" href="/users/signout">Sign out</a>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    <% } %>
+</header>

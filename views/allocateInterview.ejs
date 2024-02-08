@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('_bootstrap_meta')%>
+    <!-- Include custom CSS file for interview page -->
+    <link rel="stylesheet" href="/css/interview.css">
+    <title>Schedule Interview</title>
+  </head>
+
+  <body style="background-color: #E6E9E9 ;">
+    <!-- Include header -->
+    <%- include('_header') %>
+    <div class="container">
+      <form
+        class="w-75 mx-auto mt-4 p-4" action="/company/schedule-interview" method="post" style="background: white; border-radius: 5px; box-shadow: 7px 7px 12px rgba(0, 0, 0, 0.05);">
+        <!-- Heading for the form -->
+        <h3 style="margin-bottom: 30px; color: black; text-align: center;">Schedule Interview</h3>
+
+        <!-- Dropdown to select student -->
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <select class="form-select" aria-label="Default select example" name="id" id="name">
+            <!-- Placeholder option for selecting a student -->
+            <option selected disabled>Select Student</option>
+
+            <!-- Loop through students and populate options -->
+            <%for(let student of students){%>
+            <option value="<%=student.id%>"><%= student.name %></option>
+            <%}%>
+          </select>
+        </div>
+
+        <!-- Input field for company name -->
+        <div class="mb-3">
+          <label for="company" class="form-label">Company</label>
+          <input type="text" class="form-control" id="company" name="company"/>
+        </div>
+
+        <!-- Input field for interview date -->
+        <div class="mb-3">
+          <label for="date" class="form-label">Date</label>
+          <input type="date" class="form-control" id="date" name="date" />
+        </div>
+
+        <!-- Buttons to submit or cancel the form -->
+        <div class="d-grid gap-2">
+          <button class="btn btn-secondary btn-block" type="button" onclick="cancelForm()">Cancel</button>
+          <button class="btn btn-success btn-block" type="submit">Schedule Interview</button>
+        </div>
+      </form>
+    </div>
+    
+    <!-- Include Bootstrap scripts -->
+    <%- include('_bootstrap_script')%>
+    
+    <script>
+      // Function to cancel or close the form
+      function cancelForm() {
+        // Redirect to the homepage or any other desired page
+        window.location.href = "/";
+      }
+    </script>
+  </body>
+</html>
