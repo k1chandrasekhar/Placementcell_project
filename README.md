@@ -125,7 +125,7 @@ Ensure that the templates are correctly integrated with the routes to display th
 
 Run the following command to start the server.
 
-`node app.js`
+`node index.js`
 
 ### Step 6: Access the Application
 
