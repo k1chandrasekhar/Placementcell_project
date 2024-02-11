@@ -1,50 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<%- include('_bootstrap_meta')%>
-
-		<title>Sign In</title>
-	</head>
-	<body style="background-color: #e6e9e9">
-		<%- include('_header')%>
-		<div
-			class="w-50 mx-auto mt-5"
-			style="
-				height: 60vh;
-				display: grid;
-				place-content: center;
-				width: 530px;
-				background: rgb(255, 255, 255);
-				border-radius: 5px;
-				box-shadow: 7px 7px 12px rgba(0, 0, 0, 0.05);
-			"
-		>
-			<div class="mx-auto mt-3 mb-3" style="width: 100px">
-				<h4>Sign In</h4>
-			</div>
-
-			<form action="/users/create-session" method="POST" style="width: 300px">
-				<!-- Email input -->
-				<div class="form-outline mb-4">
-					<label class="form-label" for="email">Enter Email</label>
-					<input type="email" class="form-control" id="email" placeholder="abc@email.com" name="email" required />
-				</div>
-
-				<!-- Password input -->
-				<div class="form-outline mb-4">
-					<label class="form-label" for="password">Enter Password</label>
-					<input type="password" id="password" class="form-control" name="password" required />
-				</div>
-
-				<!-- Submit button -->
-				<button type="submit" class="btn btn-success btn-block mb-4">Sign in</button>
-
-				<!-- Register buttons -->
-				<div class="text-center">
-					<p>No Account? <a href="/users/signup">Register</a></p>
-				</div>
-			</form>
-		</div>
-		<%- include('_bootstrap_script')%>
-	</body>
+<head>
+    <%- include('_bootstrap_meta')%>
+    <!-- Include Bootstrap meta tags -->
+    <title>Sign Up</title>
+    <style>
+        /* Custom CSS for responsive design */
+        .main-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            width: 90%;
+            max-width: 400px;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body style="background-color: #e6e9e9">
+    <!-- Include header -->
+    <%- include('_header')%>
+    <div class="main-container">
+        <!-- Main content container -->
+        <div class="form-container">
+            <div class="text-center mb-4">
+                <!-- Title for the sign-up form -->
+                <h4>Sign Up</h4>
+            </div>
+            <!-- Sign-up form -->
+            <form action="/users/create" method="post">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <!-- Input field for name -->
+                    <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" required/>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <!-- Input field for email -->
+                    <input type="email" class="form-control" id="email" placeholder="abc@email.com" name="email" required />
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <!-- Input field for password -->
+                    <input type="password" class="form-control" id="password" name="password" required />
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <!-- Input field for confirming password -->
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required />
+                </div>
+                <div class="mb-4">
+                    <!-- Button to submit the sign-up form -->
+                    <button type="submit" class="btn btn-success btn-block">Sign Up</button>
+                </div>
+            </form>
+            <div class="text-center">
+                <!-- Link to redirect to login page -->
+                <a href="/users/signin">Log in Instead</a>
+            </div>
+        </div>
+    </div>
+    <!-- Include Bootstrap scripts -->
+    <%- include('_bootstrap_script')%>
+</body>
 </html>
